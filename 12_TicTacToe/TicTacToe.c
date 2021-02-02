@@ -81,7 +81,11 @@ int main(void)
     return 0;
 }
 
-
+/*
+* Name: displayBoard()
+* Purpose: show the current game board in the terminal
+* Parameters: board - 2D char array of the characters currently present on the game board
+*/
 void displayBoard(char board[ROW_MAX][COLUMN_MAX])
 {
     printf("  %c |  %c | %c \n", board[0][0],board[0][1], board[0][2]);
@@ -93,6 +97,14 @@ void displayBoard(char board[ROW_MAX][COLUMN_MAX])
     return;
 }
 
+
+/*
+* Name: isMoveValid()
+* Purpose: Checks if the users desired move is a valid one
+* Parameters: player num - whose turn it is (to determine which char to place: 'X' or 'O')
+*             move - char* (pointer) to the desired move position
+*             board - 2D char array of the characters currently present on the game board
+*/
 bool isMoveValid(int player_num, char *move, char board[ROW_MAX][COLUMN_MAX])
 {
     bool is_valid = false;
@@ -123,6 +135,14 @@ bool isMoveValid(int player_num, char *move, char board[ROW_MAX][COLUMN_MAX])
 
 }
 
+/*
+* Name: updateBoard
+* Purpose: updates board appropriately based on User's moves
+* Parameters: player num - whose turn it is (to determine which char to place: 'X' or 'O')
+*             board - 2D char array of the characters currently present on the game board
+*			  row - the row of the move the player chose
+*             column - the column of the move the player chose
+*/
 void updateBoard(int player_num, char board[ROW_MAX][COLUMN_MAX], int row, int column)
 {
     if (player_num == PLAYER_ONE)
@@ -135,6 +155,12 @@ void updateBoard(int player_num, char board[ROW_MAX][COLUMN_MAX], int row, int c
     }
 }
 
+/*
+* Name: checkForWin
+* Purpose: Checks if a win condtion is present on the board (i.e.3 in a row) or if we have a Cats Game
+* Input: board - 2D char array of the characters currently present on the game board
+* Returns: char - 'N' for no win or cats, 'W' for a win, 'C' for a cats game
+*/
 char checkForWin(char board[ROW_MAX][COLUMN_MAX])
 {
     char check = 'N'; // Assume no one has won and not a cats game
@@ -193,8 +219,14 @@ char checkForWin(char board[ROW_MAX][COLUMN_MAX])
     return check;
 }
 
+/*
+* Name: changeTurn
+* Purpose: Swamps who the active player is
+* Parameters: active_player - an integer that contains which player played last
+*/
 int changeTurn(int active_player)
 {
+    // Simple swap of the active payer
     if (active_player == PLAYER_ONE)
     {
         active_player = PLAYER_TWO;
@@ -207,6 +239,11 @@ int changeTurn(int active_player)
     return active_player;
 }
 
+/*
+* Name: resetBoard
+* Purpose: Resets the characters contained in the the board a 2D Character array
+* Parameters: board - the 2D char array representing the playing board
+*/
 void resetBoard(char board[ROW_MAX][COLUMN_MAX])
 {
     board [0][0] = '1';
@@ -221,6 +258,11 @@ void resetBoard(char board[ROW_MAX][COLUMN_MAX])
 
 }
 
+/*
+* Name: resetMove
+* Purpose: simply resets the current move to a "bad" value so it's not read twice (to try to solve misreading issue)
+* Parameters: current_move - is a pointer to the char most previously played by the users
+*/
 void resetMove (char *current_move)
 {
     *current_move = '0';
