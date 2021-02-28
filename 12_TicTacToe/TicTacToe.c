@@ -158,7 +158,7 @@ void updateBoard(int player_num, char board[ROW_MAX][COLUMN_MAX], int row, int c
 /*
 * Name: checkForWin
 * Purpose: Checks if a win condtion is present on the board (i.e.3 in a row) or if we have a Cats Game
-* Input: board - 2D char array of the characters currently present on the game board
+* Parameters: board - 2D char array of the characters currently present on the game board
 * Returns: char - 'N' for no win or cats, 'W' for a win, 'C' for a cats game
 */
 char checkForWin(char board[ROW_MAX][COLUMN_MAX])

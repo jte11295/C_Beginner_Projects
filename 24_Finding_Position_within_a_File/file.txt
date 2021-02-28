@@ -1,0 +1,7 @@
+Hello World!
+
+My Name is Jared. 
+
+I'm going to use this file as an example to see how many bytes it takes up in memory
+
+It's going to be soooooooo awesome! :)

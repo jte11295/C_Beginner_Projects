@@ -1,0 +1,33 @@
+So this program
+
+should be able
+
+to tell me
+
+
+the number
+
+
+
+
+of lines
+
+
+contatained
+
+
+
+within
+
+this 
+
+
+
+file.
+
+The answer
+
+
+should be
+
+33 (so long as it's 1 indexed)
